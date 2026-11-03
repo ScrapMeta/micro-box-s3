@@ -1,0 +1,17 @@
+menu "VB6824 audio"
+config VB6824_TYPE_OPUS_16K_20MS_PCM_16K
+    bool
+    default y
+config VB6824_UART_PORT
+    int
+    default 1
+config VB6824_UART_TASK_STACK_SIZE
+    int
+    default 4096
+config VB6824_SEND_USE_TASK
+    bool
+    default y
+config VB6824_SEND_TASK_STACK_SIZE
+    int
+    default 2048
+endmenu

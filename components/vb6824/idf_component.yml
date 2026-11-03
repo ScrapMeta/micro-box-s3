@@ -1,0 +1,5 @@
+version: "2.3.0"
+license: "MIT"
+description: "VB6824 UART audio transport; no chip firmware updater"
+dependencies:
+  idf: ">=5.4.0"

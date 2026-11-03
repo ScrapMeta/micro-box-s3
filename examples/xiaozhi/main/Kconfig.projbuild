@@ -1,0 +1,80 @@
+menu "micro-box-s3 Xiaozhi"
+
+config BOARD_TYPE_MICRO_BOX_S3
+    bool "micro-box-s3"
+    depends on IDF_TARGET_ESP32S3
+    default y
+    select LCD_GC9A01_160X160
+    select USE_EYE_STYLE_VB6824
+    select USE_AUDIO_CODEC_ENCODE_OPUS
+
+config LANGUAGE_ZH_CN
+    bool
+    default y
+
+config USE_SOFTAP_NET_CONFIGURING
+    bool
+    default y
+
+config USE_EYE_STYLE_VB6824
+    bool
+    default y
+
+config USE_AUDIO_CODEC_ENCODE_OPUS
+    bool
+    default y
+
+config USE_AUDIO_CODEC_DECODE_OPUS
+    bool
+    depends on n
+    default n
+
+config VB6824_OTA_SUPPORT
+    bool
+    depends on n
+    default n
+    help
+        Not available: this example uses the UART-only VB6824 component.
+
+config OTA_URL
+    string "Xiaozhi activation and service-discovery URL"
+    default "https://api.tenclass.net/xiaozhi/ota/"
+    help
+        Xiaozhi protocol service discovery, activation and ESP32 application OTA.
+        This is unrelated to the disabled UART codec upgrade functionality.
+
+choice IOT_PROTOCOL
+    prompt "IoT protocol"
+    default IOT_PROTOCOL_MCP
+config IOT_PROTOCOL_MCP
+    bool "MCP 2024-11-05 with vision tools"
+config IOT_PROTOCOL_XIAOZHI
+    bool "Xiaozhi IoT 1.0"
+endchoice
+
+config USE_DEVICE_AEC
+    bool "Use the codec's device-side AEC"
+    default n
+
+config USE_SERVER_AEC
+    bool "Use server-side AEC"
+    default n
+
+config USE_AUDIO_DEBUGGER
+    bool "Enable audio UDP diagnostics"
+    default n
+config AUDIO_DEBUG_UDP_SERVER
+    string "Audio diagnostic UDP address"
+    default "127.0.0.1:8000"
+    depends on USE_AUDIO_DEBUGGER
+
+config SPEAKING_FIRST_MUTE_TIME
+    int "Mute duration before speaking (ms)"
+    default 60
+config TACKGROUND_TASK_STACK_SIZE
+    int "Background task stack size (bytes)"
+    default 28672
+config AUDIO_LOOP_TASK_STACK_SIZE
+    int "Audio task stack size (bytes)"
+    default 8192
+endmenu

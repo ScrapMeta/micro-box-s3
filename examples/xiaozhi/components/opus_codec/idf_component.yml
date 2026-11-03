@@ -1,0 +1,6 @@
+version: "2.3.1"
+description: "Source-only Opus C++ wrappers compatible with this application"
+license: MIT
+dependencies:
+  idf: "==5.4.3"
+  78/esp-opus: "==1.0.5"

@@ -1,0 +1,70 @@
+{
+  "board": "micro-box-s3",
+  "generated_at": "2026-11-03T13:19:46.435246+00:00",
+  "builds": [
+    {
+      "target": "display",
+      "sdk": "ESP-IDF v5.4.3",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "app_file": "micro_box_s3_peripherals.bin",
+      "app_bytes": 214576,
+      "app_sha256": "9550da692bb430520e90429a4870483b4d22e701b492cc27bc32fad95243f81b",
+      "flashed": false,
+      "hardware_tested": false
+    },
+    {
+      "target": "audio",
+      "sdk": "ESP-IDF v5.4.3",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "app_file": "micro_box_s3_peripherals.bin",
+      "app_bytes": 196976,
+      "app_sha256": "a2c829bc5af1b82057c0c3ef2c15d4e8ceae364204088cf6a031ad6b7135dfe6",
+      "flashed": false,
+      "hardware_tested": false
+    },
+    {
+      "target": "camera",
+      "sdk": "ESP-IDF v5.4.3",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "app_file": "micro_box_s3_peripherals.bin",
+      "app_bytes": 268320,
+      "app_sha256": "987977c49737ca7334eed3ecadd72e1e08963fe8544e352626bc9d3774d2f63c",
+      "flashed": false,
+      "hardware_tested": false
+    },
+    {
+      "target": "touch",
+      "sdk": "ESP-IDF v5.4.3",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "app_file": "micro_box_s3_peripherals.bin",
+      "app_bytes": 184256,
+      "app_sha256": "92f689870586405ef36297ee6b656a68f4559f00baa5303655df66ac5a2518ac",
+      "flashed": false,
+      "hardware_tested": false
+    },
+    {
+      "target": "xiaozhi",
+      "sdk": "ESP-IDF v5.4.3",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "app_file": "micro-box-s3.bin",
+      "app_bytes": 2922368,
+      "app_sha256": "300260e268f4c4a7c794850ae67379bfba427035cf3d897ece9da826ed1d0dd6",
+      "flashed": false,
+      "hardware_tested": false
+    }
+  ],
+  "tests": {
+    "successful": true,
+    "tests_run": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "committed_content_scan": "passed",
+  "hardware_scope": "Earlier matching 160x160 parameter baseline displayed eyes and played provisioning audio. This refactored repository has not been flashed; online voice, AEC, touch and vision remain unverified."
+}

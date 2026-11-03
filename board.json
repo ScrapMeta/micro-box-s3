@@ -1,0 +1,58 @@
+{
+  "name": "micro-box-s3",
+  "target": "esp32s3",
+  "flash_mb": 16,
+  "psram_mb": 8,
+  "display": {
+    "width": 160,
+    "height": 160,
+    "pixel_clock_hz": 20000000,
+    "panels": [
+      {
+        "host": "SPI3_HOST",
+        "sclk": 42,
+        "mosi": 2,
+        "rst": 1,
+        "dc": 41
+      },
+      {
+        "host": "SPI2_HOST",
+        "sclk": 38,
+        "mosi": 39,
+        "rst": 40,
+        "dc": 0
+      }
+    ]
+  },
+  "audio": {
+    "chip": "VB6824",
+    "tx": 45,
+    "rx": 48,
+    "baud": 2000000
+  },
+  "touch_channels": [
+    14,
+    13,
+    12,
+    11
+  ],
+  "camera": {
+    "sensor": "OV3660",
+    "xclk": 16,
+    "sda": 4,
+    "scl": 5,
+    "d0_d7": [
+      21,
+      9,
+      3,
+      10,
+      47,
+      18,
+      17,
+      15
+    ],
+    "vsync": 6,
+    "href": 7,
+    "pclk": 8
+  }
+}

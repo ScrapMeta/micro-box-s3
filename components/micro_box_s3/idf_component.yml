@@ -1,0 +1,6 @@
+version: "0.1.0"
+license: "MIT"
+description: "micro-box-s3 board configuration and peripheral initialization"
+dependencies:
+  idf: ">=5.4.0"
+  espressif/esp32-camera: "==2.1.8"

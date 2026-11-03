@@ -1,0 +1,8 @@
+micro-box-s3
+
+Adaptations and documentation: 2026 ScrapMeta.
+Existing software copyright and permission notices are retained.
+The repository software is MIT-licensed unless a file states otherwise.
+The LCD component retains its Apache-2.0 notices; see LICENSES/Apache-2.0.txt.
+Chip names and SDK identifiers are technical identifiers, not board branding.
+No third-party circuit diagram, full-flash backup, device credentials or binary voice-chip updater is distributed.

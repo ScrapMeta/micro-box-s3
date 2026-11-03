@@ -1,0 +1,6 @@
+version: "2.0.1"
+license: "Apache-2.0"
+description: "160x160 SPI panel support for micro-box-s3"
+dependencies:
+  idf: ">=5.4.0"
+  espressif/cmake_utilities: "==0.5.3"

@@ -1,0 +1,14 @@
+menu "micro-box-s3 peripherals"
+choice MICRO_BOX_S3_DEMO
+    prompt "Example"
+    default MICRO_BOX_S3_DEMO_DISPLAY
+config MICRO_BOX_S3_DEMO_DISPLAY
+    bool "Dual display: RGB test"
+config MICRO_BOX_S3_DEMO_AUDIO
+    bool "Audio: tone and wake event"
+config MICRO_BOX_S3_DEMO_CAMERA
+    bool "Camera: capture to PSRAM"
+config MICRO_BOX_S3_DEMO_TOUCH
+    bool "Touch: four channel events"
+endchoice
+endmenu

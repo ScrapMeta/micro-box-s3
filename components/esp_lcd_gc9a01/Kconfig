@@ -1,0 +1,3 @@
+config LCD_GC9A01_160X160
+    bool
+    default y
