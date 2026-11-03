@@ -2,7 +2,7 @@
 
 ESP32-S3 双屏语音视觉开发板的独立参考工程，统一使用名称 **micro-box-s3**。
 
-阅读：[开发板](docs/board.md) · [驱动](docs/drivers.md) · [例程](docs/examples.md) · [验证记录](docs/validation.md)。
+阅读：[开发板](docs/board.md) · [接口与针序](docs/interfaces.md) · [驱动](docs/drivers.md) · [例程](docs/examples.md) · [验证记录](docs/validation.md)。
 
 ## 已验证基础配置
 
