@@ -6,7 +6,8 @@
 | 双屏 | `micro_box_s3_lcd_init()` | 屏0/1分别初始化SPI3/SPI2 |
 | 相机 | `micro_box_s3_camera_config()` | RGB565、VGA、PSRAM单帧缓冲 |
 | 音频 | `vb6824.h` | UART 2 Mbaud；输入OPUS，输出16 kHz单声道16-bit PCM |
-| 触摸 | ESP-IDF touch button | 4路，长按阈值2秒 |
+| 本地输入 | `micro_box_s3_inputs.h` | GPIO11单触摸、GPIO12/13双按键，事件/快照 |
+| 震动 | `micro_box_s3_motor.h` | GPIO14限时PWM，默认关闭，Timer1/Channel1 |
 
 ## 显示
 
@@ -24,6 +25,8 @@ ESP_ERROR_CHECK(micro_box_s3_lcd_init(0, &panel, &io));
 
 本仓库不启用硬件OPUS解码，不包含VB6824芯片升级或自动升级服务；小智例程的ESP32应用OTA另见其说明。AEC、双讲打断需要独立声学和服务端验收。
 
-## 相机与触摸
+## 相机与本地控制
 
-每次`esp_camera_fb_get()`成功后必须调用`esp_camera_fb_return()`。传感器检测成功不等于图像质量或多模态识别已验收。触摸启动时不要按住触摸区域，通道为14/13/12/11。
+每次`esp_camera_fb_get()`成功后必须调用`esp_camera_fb_return()`，初始化成功不等于视觉实测通过。相机XCLK占Timer0/Channel0，震动占Timer1/Channel1。
+
+触摸仅GPIO11，GPIO12/13配置机械按键，GPIO14保留模块IN，不再旧四路混扫。输入create后异步校准约3秒，手离开电极；输入事件回调不得阻塞。马达pulse校验时长/占空比/起动段，忙时拒绝，停止后冷却3秒。API、初始化/释放和接线限制见 [本地输入与震动](controls.md)，具体线程/资源约束以公共头文件为准。

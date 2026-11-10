@@ -9,6 +9,12 @@ config MICRO_BOX_S3_DEMO_AUDIO
 config MICRO_BOX_S3_DEMO_CAMERA
     bool "Camera: capture to PSRAM"
 config MICRO_BOX_S3_DEMO_TOUCH
-    bool "Touch: four channel events"
+    bool "Touch: GPIO11 single channel events"
+config MICRO_BOX_S3_DEMO_BUTTONS
+    bool "Buttons: GPIO12/13 events"
+config MICRO_BOX_S3_DEMO_MOTOR
+    bool "Motor: GPIO14 serial-triggered bounded pulses"
+config MICRO_BOX_S3_DEMO_CONTROLS
+    bool "Controls: one touch, two buttons, optional serial motor"
 endchoice
 endmenu

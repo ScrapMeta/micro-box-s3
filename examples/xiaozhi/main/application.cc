@@ -380,6 +380,8 @@ void Application::StopListening() {
 
 void Application::Start() {
     auto& board = Board::GetInstance();
+    // Local controls must run in offline/provisioning mode too.
+    touch_button_ = std::make_unique<TouchButton>();
     SetDeviceState(kDeviceStateStarting);
 
     /* Setup the display */
@@ -562,8 +564,6 @@ void Application::Start() {
         }
     });
     bool protocol_started = protocol_->Start();
-    //按键初始化
-    touch_button_ = std::make_unique<TouchButton>();
 
     audio_debugger_ = std::make_unique<AudioDebugger>();
     audio_processor_->Initialize(codec);

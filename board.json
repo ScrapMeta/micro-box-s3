@@ -30,12 +30,24 @@
     "rx": 48,
     "baud": 2000000
   },
-  "touch_channels": [
-    14,
-    13,
-    12,
-    11
-  ],
+  "touch_channels": [11],
+  "buttons": {"a": 12, "b": 13, "active_level": 0},
+  "motor": {
+    "gpio": 14,
+    "active_level": 1,
+    "automatic_on_boot": false,
+    "pwm_timer": 1,
+    "pwm_channel": 1,
+    "pwm_hz": 200,
+    "max_pulse_ms": 400,
+    "power": "external_driver_module_VBAT_conditional",
+    "electrical_range_qualified": false
+  },
+  "controls_connector": {
+    "name": "CN4",
+    "pin_numbering": "schematic_not_physical_view",
+    "pin_signals": ["TOUCH", "BUTTON_A", "BUTTON_B", "MOTOR_IN", "VBAT", "GND"]
+  },
   "camera": {
     "sensor": "OV3660",
     "xclk": 16,

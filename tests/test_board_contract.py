@@ -20,7 +20,15 @@ class BoardContract(unittest.TestCase):
             {'host': 'SPI2_HOST', 'sclk': 38, 'mosi': 39, 'rst': 40, 'dc': 0},
         ])
         self.assertEqual(data['audio'], {'chip': 'VB6824', 'tx': 45, 'rx': 48, 'baud': 2000000})
-        self.assertEqual(data['touch_channels'], [14, 13, 12, 11])
+        self.assertEqual(data['touch_channels'], [11])
+        self.assertEqual(data['buttons'], {'a': 12, 'b': 13, 'active_level': 0})
+        self.assertEqual(data['motor']['gpio'], 14)
+        self.assertEqual(data['motor']['active_level'], 1)
+        self.assertFalse(data['motor']['automatic_on_boot'])
+        pins = data['touch_channels'] + [data['buttons']['a'], data['buttons']['b'], data['motor']['gpio']]
+        self.assertEqual(len(pins), len(set(pins)))
+        self.assertEqual(data['controls_connector']['name'], 'CN4')
+        self.assertEqual(data['controls_connector']['pin_signals'], ['TOUCH', 'BUTTON_A', 'BUTTON_B', 'MOTOR_IN', 'VBAT', 'GND'])
         self.assertTrue((ROOT / 'components/micro_box_s3/include/micro_box_s3.h').is_file())
 
 if __name__ == '__main__':

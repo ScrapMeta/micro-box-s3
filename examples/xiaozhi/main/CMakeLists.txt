@@ -33,7 +33,7 @@ file(GLOB COMMON_SOUNDS "${CMAKE_CURRENT_SOURCE_DIR}/assets/common/*.p3")
 idf_component_register(SRCS ${SOURCES}
     INCLUDE_DIRS "." "display" "audio_codecs" "protocols" "audio_processing" "boards/common"
     EMBED_FILES ${LANG_SOUNDS} ${COMMON_SOUNDS}
-    REQUIRES micro_box_s3 vb6824 opus_codec
+    REQUIRES micro_box_s3 micro_box_s3_controls vb6824 opus_codec
              esp_lcd driver touch_element esp_timer nvs_flash app_update
              esp_wifi esp_event esp_netif esp_pm esp_psram esp_system esp_hw_support
              esp_partition esp_app_format spi_flash efuse json mbedtls lwip pthread

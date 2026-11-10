@@ -1,0 +1,99 @@
+{
+  "marker": "motor-patterns-v1",
+  "accepted_at": "2026-11-10T21:49:41.000087+08:00",
+  "app_sha256": "9656eceb01737234d71d7c42d11080dd9dfd7a199a0b293980efaaa1102c8cd7",
+  "app_bytes": 169632,
+  "source_hashes": {
+    "CMakeLists.txt": "34baf3382222a310a1a4bd1236bd25de045a59639c89b1173cc34997ddc78932",
+    "partitions.csv": "f14d150dcafe75951182f44c6aff62d72fdd473b515f9df4e79cf50f2c9086a2",
+    "sdkconfig.defaults": "d61a3d80fac2e298a6f6d69fd4a3fc05c959e03c76762e81ef0aff3429e38b95",
+    "main\\CMakeLists.txt": "9137021ad24398750a3685d53811505b491b6bef41b33f91e160151d660d7c5b",
+    "main\\main.c": "b9d552b7182dcdb8a737a0e3ac2016cdbad24f3ff568dac1d55e2d5b8db177d8",
+    "main\\patterns.h": "b3d5c56d47947c2ba6db01c77f790b384f551e689a7f34fd25acf9feaa3dc61b"
+  },
+  "flashed": true,
+  "app_readback_match": true,
+  "boot_partition_ota_nvs_phy_preserved": true,
+  "gpio": 14,
+  "power": "VBAT per user; voltage and current unmeasured",
+  "pwm_hz": 200,
+  "pwm_timer": 1,
+  "pwm_channel": 1,
+  "cooldown_us": 3000000,
+  "patterns": [
+    {
+      "case": 1,
+      "duration_ms": 100,
+      "duty_percent": 100,
+      "boost_ms": 0,
+      "firmware_elapsed_us": 100024,
+      "on_verified": true,
+      "off_verified": true
+    },
+    {
+      "case": 2,
+      "duration_ms": 200,
+      "duty_percent": 100,
+      "boost_ms": 0,
+      "firmware_elapsed_us": 200013,
+      "on_verified": true,
+      "off_verified": true
+    },
+    {
+      "case": 3,
+      "duration_ms": 400,
+      "duty_percent": 100,
+      "boost_ms": 0,
+      "firmware_elapsed_us": 400013,
+      "on_verified": true,
+      "off_verified": true
+    },
+    {
+      "case": 4,
+      "duration_ms": 400,
+      "duty_percent": 30,
+      "boost_ms": 40,
+      "firmware_elapsed_us": 400013,
+      "on_verified": true,
+      "off_verified": true
+    },
+    {
+      "case": 5,
+      "duration_ms": 400,
+      "duty_percent": 60,
+      "boost_ms": 40,
+      "firmware_elapsed_us": 400013,
+      "on_verified": true,
+      "off_verified": true
+    },
+    {
+      "case": 6,
+      "duration_ms": 400,
+      "duty_percent": 100,
+      "boost_ms": 0,
+      "firmware_elapsed_us": 400017,
+      "on_verified": true,
+      "off_verified": true
+    }
+  ],
+  "physical_feedback": {
+    "duration": "三次都振动并停止，时长区别明显",
+    "strength": "弱、中、强区别明显",
+    "after_test": "没有，结束后已停止"
+  },
+  "verdict": "six_bounded_duration_and_pwm_patterns_physically_confirmed",
+  "no_automatic_sequence_on_boot": true,
+  "each_case_once_per_boot": true,
+  "final_status": {
+    "active": false,
+    "used_mask": 63
+  },
+  "electrical_range_qualified": false,
+  "not_tested": [
+    "battery voltage/current",
+    "logic input margin and backfeed",
+    "low-battery starts",
+    "temperature endurance",
+    "combined voice/touch/button operation"
+  ]
+}

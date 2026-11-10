@@ -10,7 +10,11 @@
 #include "esp_camera.h"
 #include "micro_box_s3.h"
 #include "vb6824.h"
-#include "touch_element/touch_button.h"
+#include <inttypes.h>
+#include "micro_box_s3_inputs.h"
+#include "micro_box_s3_motor.h"
+#include "driver/usb_serial_jtag.h"
+static micro_box_s3_motor_handle_t motor;
 static const char *TAG = "micro-box-s3";
 
 #if CONFIG_MICRO_BOX_S3_DEMO_DISPLAY
@@ -79,36 +83,66 @@ static void camera_demo(void) {
 }
 #endif
 
-#if CONFIG_MICRO_BOX_S3_DEMO_TOUCH
-static void touch_event(touch_button_handle_t handle,touch_button_message_t *event,void *arg) {
-    (void)handle; ESP_LOGI(TAG,"Touch channel %u event %u",(unsigned)(uintptr_t)arg,(unsigned)event->event);
+#if CONFIG_MICRO_BOX_S3_DEMO_TOUCH || CONFIG_MICRO_BOX_S3_DEMO_BUTTONS || CONFIG_MICRO_BOX_S3_DEMO_MOTOR || CONFIG_MICRO_BOX_S3_DEMO_CONTROLS
+#if !CONFIG_MICRO_BOX_S3_DEMO_MOTOR
+static void input_event(micro_box_s3_input_t input,micro_box_s3_input_event_t event,void *arg){
+    (void)arg;
+    ESP_LOGI(TAG,"INPUT id=%u event=%u (touch=0 A=1 B=2; press=0 release=1 long=2)",(unsigned)input,(unsigned)event);
 }
-static void touch_demo(void) {
-    const touch_pad_t channels[]={TOUCH_PAD_NUM14,TOUCH_PAD_NUM13,TOUCH_PAD_NUM12,TOUCH_PAD_NUM11};
-    touch_elem_global_config_t all=TOUCH_ELEM_GLOBAL_DEFAULT_CONFIG(); ESP_ERROR_CHECK(touch_element_install(&all));
-    touch_button_global_config_t buttons=TOUCH_BUTTON_GLOBAL_DEFAULT_CONFIG(); ESP_ERROR_CHECK(touch_button_install(&buttons));
-    for(unsigned i=0;i<4;++i) {
-        touch_button_handle_t h; touch_button_config_t c={.channel_num=channels[i],.channel_sens=0.1F};
-        ESP_ERROR_CHECK(touch_button_create(&c,&h));
-        ESP_ERROR_CHECK(touch_button_subscribe_event(h,TOUCH_ELEM_EVENT_ON_PRESS|TOUCH_ELEM_EVENT_ON_RELEASE|TOUCH_ELEM_EVENT_ON_LONGPRESS,(void*)(uintptr_t)channels[i]));
-        ESP_ERROR_CHECK(touch_button_set_dispatch_method(h,TOUCH_ELEM_DISP_CALLBACK));
-        ESP_ERROR_CHECK(touch_button_set_callback(h,touch_event));
-        ESP_ERROR_CHECK(touch_button_set_longpress(h,2000));
+#endif
+static void controls_demo(void){
+    micro_box_s3_inputs_handle_t inputs=NULL;
+#if !CONFIG_MICRO_BOX_S3_DEMO_MOTOR
+    micro_box_s3_inputs_config_t cfg=MICRO_BOX_S3_INPUTS_DEFAULT_CONFIG();
+#if CONFIG_MICRO_BOX_S3_DEMO_BUTTONS
+    cfg.enable_touch=false;
+#elif CONFIG_MICRO_BOX_S3_DEMO_TOUCH
+    cfg.enable_buttons=false;
+#endif
+    cfg.callback=input_event;
+    ESP_ERROR_CHECK(micro_box_s3_inputs_create(&cfg,&inputs));
+#endif
+#if CONFIG_MICRO_BOX_S3_DEMO_MOTOR || CONFIG_MICRO_BOX_S3_DEMO_CONTROLS
+    usb_serial_jtag_driver_config_t usb={.tx_buffer_size=1024,.rx_buffer_size=256};
+    ESP_ERROR_CHECK(usb_serial_jtag_driver_install(&usb));
+    ESP_LOGI(TAG,"No automatic vibration. Serial V=one 200ms/100%% pulse; X=stop; S=status. Max400ms, cooldown3s.");
+#endif
+    for(;;){
+#if CONFIG_MICRO_BOX_S3_DEMO_MOTOR || CONFIG_MICRO_BOX_S3_DEMO_CONTROLS
+        uint8_t command=0;
+        if(usb_serial_jtag_read_bytes(&command,1,pdMS_TO_TICKS(50))==1){
+            if(command=='V'){
+                esp_err_t e=micro_box_s3_motor_pulse(motor,200,100,0);
+                ESP_LOGI(TAG,"motor request result=%s",esp_err_to_name(e));
+            }else if(command=='X')ESP_ERROR_CHECK(micro_box_s3_motor_stop(motor));
+            else if(command=='S'){
+                micro_box_s3_motor_state_t state;
+                ESP_ERROR_CHECK(micro_box_s3_motor_get_state(motor,&state));
+                ESP_LOGI(TAG,"MOTOR active=%u duty=%u duration_ms=%u count=%"PRIu32,(unsigned)state.active,state.duty_percent,state.duration_ms,state.pulses_started);
+            }
+        }
+#endif
+        if(inputs){
+            micro_box_s3_inputs_snapshot_t snapshot;
+            ESP_ERROR_CHECK(micro_box_s3_inputs_get_snapshot(inputs,&snapshot));
+            ESP_LOGI(TAG,"INPUTS calibrated=%u raw=%"PRIu32" base=%"PRIu32" touch=%u A=%u B=%u",(unsigned)snapshot.calibrated,snapshot.touch_raw,snapshot.touch_baseline,(unsigned)snapshot.touch_pressed,(unsigned)snapshot.button_a_pressed,(unsigned)snapshot.button_b_pressed);
+        }
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
-    touch_element_start();
-    for(;;) vTaskDelay(pdMS_TO_TICKS(1000));
 }
 #endif
 
 void app_main(void) {
-    ESP_LOGI(TAG,"micro-box-s3 peripheral example");
+    // Always claim the actuator pin at idle, including input-only examples.
+    ESP_ERROR_CHECK(micro_box_s3_motor_create(&motor));
+    ESP_LOGI(TAG,"micro-box-s3 peripheral example; motor starts OFF");
 #if CONFIG_MICRO_BOX_S3_DEMO_DISPLAY
     display_demo();
 #elif CONFIG_MICRO_BOX_S3_DEMO_AUDIO
     audio_demo();
 #elif CONFIG_MICRO_BOX_S3_DEMO_CAMERA
     camera_demo();
-#elif CONFIG_MICRO_BOX_S3_DEMO_TOUCH
-    touch_demo();
+#elif CONFIG_MICRO_BOX_S3_DEMO_TOUCH || CONFIG_MICRO_BOX_S3_DEMO_BUTTONS || CONFIG_MICRO_BOX_S3_DEMO_MOTOR || CONFIG_MICRO_BOX_S3_DEMO_CONTROLS
+    controls_demo();
 #endif
 }

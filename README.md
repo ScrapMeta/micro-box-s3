@@ -2,9 +2,9 @@
 
 ESP32-S3 双屏语音视觉开发板的独立参考工程，统一使用名称 **micro-box-s3**。
 
-阅读：[开发板](docs/board.md) · [接口与针序](docs/interfaces.md) · [驱动](docs/drivers.md) · [例程](docs/examples.md) · [验证记录](docs/validation.md)。
+阅读：[开发板](docs/board.md) · [接口与针序](docs/interfaces.md) · [本地输入与震动](docs/controls.md) · [驱动](docs/drivers.md) · [例程](docs/examples.md) · [验证记录](docs/validation.md)。
 
-## 已验证基础配置
+## 板级配置
 
 | 项目 | 配置 |
 |---|---|
@@ -14,19 +14,22 @@ ESP32-S3 双屏语音视觉开发板的独立参考工程，统一使用名称 *
 | 双屏 | 0.71英寸，160×160，RGB565；GC9A01接口驱动，20 MHz |
 | 音频 | VB6824，UART 2,000,000 baud |
 | 摄像头 | OV3660，RGB565 VGA，PSRAM 单帧缓冲 |
-| 触摸 | 4 通道：14、13、12、11 |
+| 本地输入 | 1路触摸GPIO11；按键A/B：GPIO12/13 |
+| 震动 | GPIO14控制带驱动模块；默认关闭，VBAT供电须核验 |
 | SDK | ESP-IDF 5.4.3 |
 
 ## 目录
 
 - `board.json`：硬件能力与 GPIO 定义。
 - `components/micro_box_s3`：开发板初始化库，提供双屏和摄像头配置。
+- `components/micro_box_s3_controls`：单路触摸、双按键和有界时长PWM震动组件，事件与业务解耦。
 - `components/esp_lcd_gc9a01`：160×160 SPI 屏驱动，包含该尺寸所需初始化流程。
 - `components/vb6824`：UART 音频传输库，仅包含音频、唤醒词和音量接口；不包含芯片升级网络服务。
-- `examples/peripherals`：显示、音频、摄像头、触摸四个最小例程，共用一个工程，通过配置选择一个例程。
+- `examples/peripherals`：显示、音频、相机、单触摸、双按键、马达和组合controls七个互斥模式。
+- `examples/controls-test`、`motor-test`、`motor-patterns`：此前独立实测诊断，保留重现入口，不等于新组件已实机验收。
 - `examples/xiaozhi`：小智语音视觉例程，保留双眼动画、语音唤醒、摄像头多模态和配网流程。
 - `tools/build.py`：隔离构建脚本。只编译和生成镜像，不打开串口，不自动烧录。
-- `tests`：配置契约测试。
+- `tests`：真实host C行为测试及配置/集成契约测试。
 - `docs`：硬件、驱动和例程说明。
 
 ## 快速开始
@@ -38,6 +41,9 @@ python tools/build.py display
 python tools/build.py audio
 python tools/build.py camera
 python tools/build.py touch
+python tools/build.py buttons
+python tools/build.py motor
+python tools/build.py controls
 python tools/build.py xiaozhi
 ```
 
@@ -52,7 +58,7 @@ python tools/build.py xiaozhi
 
 ## 实机验收状态
 
-小智固件已完成烧录、4 区独立回读及启动检查，用户确认双眼动画和配网提示音正常。本轮未联网，其他功能与四个独立外设固件仍需分别验收，详见 [实机测试记录](docs/device-test.md)。
+此前小智版本已完成烧录、回读及双眼/提示音基础验收，见 [历史实机记录](docs/device-test.md)。单触摸和双按键的独立诊断已观察到基本事件；马达独立诊断已通过 [时长/占空比对比](docs/motor-patterns.md)。本次新共享组件及小智本地输入适配尚未刷机，不继承历史实机通过；当前设备保留最近的马达对比诊断固件。
 
 ## 许可
 

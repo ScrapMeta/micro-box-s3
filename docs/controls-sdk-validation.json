@@ -1,0 +1,571 @@
+{
+  "board": "micro-box-s3",
+  "recorded_at_utc": "2026-11-10T15:01:49.286739+00:00",
+  "source_base_commit": "f2dbe09f00dd68c4bd9dfafdac383a97a9867712",
+  "source_manifest_sha256": "3c1ccf42c75e43bde82cbe1916ed8a69b290b7db8e9ec3c345392b9433679e39",
+  "source_files_sha256": {
+    "board.json": "4a6105769cd6a51b6a3fd1a35720ce14acb052df8f44711adffc13e1fe4aa92c",
+    "components/esp_lcd_gc9a01/CMakeLists.txt": "8bd1524b52082363c66e0d94ffaf1f8deb03a31c89faf5b2accafe460f1e2127",
+    "components/esp_lcd_gc9a01/esp_lcd_gc9a01.c": "d8dfb19b3194a334aa4b4b260bc7d54c8eefd3af74245a0fc3d664affcf738cb",
+    "components/esp_lcd_gc9a01/idf_component.yml": "5b8f9ff440353257e4a593812e73e6c5cc88e5a21ad77d7c35e5940b24212d8e",
+    "components/esp_lcd_gc9a01/include/esp_lcd_gc9a01.h": "74bda2b20c7cb5fa83c658e92f02b332eb7bbbea549ff22ffe7e0be34dff85f9",
+    "components/micro_box_s3/CMakeLists.txt": "3fb9448c57f9f84a5c54b6b9073dcff921b296d4b396e6c264365959d20d9b3f",
+    "components/micro_box_s3/idf_component.yml": "7520af885735ed4eee6c0133b305a6248b36d782303b449d0610ca55c6403722",
+    "components/micro_box_s3/include/micro_box_s3.h": "8563ea3085aecef128851a4ea25cb86fef722d5eb80d8fff20446387478c3dc3",
+    "components/micro_box_s3/include/micro_box_s3_pins.h": "e6b77892ee77edabfaeed73f2777455cd8610aa829068b3bee58c0308ecc1a0c",
+    "components/micro_box_s3/micro_box_s3.c": "3f01da129a96239a6ba8e6ed6451afeab0711671094dd547e2e3e3d5b7e2cab4",
+    "components/micro_box_s3_controls/CMakeLists.txt": "6eed6991db1b511d418eabd2c9791a02a2d239b7b27890b931c68093466a06c2",
+    "components/micro_box_s3_controls/include/micro_box_s3_inputs.h": "04c4cace4e3592133b7b0983bffc15038f289686862bd18e1536e3f29f55f4c6",
+    "components/micro_box_s3_controls/include/micro_box_s3_motor.h": "e02a7e4da7a9dd1f175357e4650431a6d9bf3727f5a7805c08b15979eb505251",
+    "components/micro_box_s3_controls/inputs.c": "84661f6afdcc00abd3a39c477a4088b1deb3517730023419d18adf66b00ca21c",
+    "components/micro_box_s3_controls/inputs_logic.h": "3fa06b066576df86ce04443726eb40312245f6fe82931ff96ef25225ee5fa0e0",
+    "components/micro_box_s3_controls/micro_box_s3_motor.c": "1af6c5c079a1c9397ab47ae58d49a406485fcc9f6d9745a533e3d5af434258d4",
+    "components/micro_box_s3_controls/micro_box_s3_motor_policy.c": "ac6dfdc7cd17630220023c9da0127b28e9fc146c651827dc55e3375323c10e15",
+    "components/micro_box_s3_controls/micro_box_s3_motor_policy.h": "3240df426e7af554e4cdbf7fcaed359e21a1532968299cf70af5f1a2b61aa01f",
+    "components/vb6824/CMakeLists.txt": "8a5b5dca30770556d6069ffcd344173ef5642e02bef69c50f96c5090ec52b0a0",
+    "components/vb6824/idf_component.yml": "92123459d6d184eb5d6e8218c25b6a13c3446e000125dc787a5738e4b90a7d0f",
+    "components/vb6824/vb6824.c": "0a429eafac9dad78eb302740644e659b07232b14f466ea1f19cdf4d0086112fb",
+    "components/vb6824/vb6824.h": "9774d7d98a1c2f557acb0ed9323c88e5bc773f9425044a4b76fb351ec75294c2",
+    "components/vb6824/vb6824_frame.c": "78504deab37e97650b33913ec8c04286668407a3d5a74d1bd6825e47f5045ae3",
+    "components/vb6824/vb6824_frame.h": "ff8ffa5d318f90ff75b4b9e8ce43f0b990116bbbd3df7224ca62422f982eba9e",
+    "examples/controls-test/CMakeLists.txt": "e603f916e04e03a1f17d5240224c33a095ebbed002d04a11c7f5d839f666c623",
+    "examples/controls-test/main/CMakeLists.txt": "e749b4aadba155dd7961089a8d783fe0dcb27349da78fa4be6867800e659135b",
+    "examples/controls-test/main/input_logic.h": "e8ec4916dc7f50615372d32b11288b94a6b7db32683d056c2043b504fbd12a37",
+    "examples/controls-test/main/main.c": "f4b017810031a9c398759e6afb45f59986daf240c13ddfcd9a004d9cde401d5d",
+    "examples/controls-test/partitions.csv": "f14d150dcafe75951182f44c6aff62d72fdd473b515f9df4e79cf50f2c9086a2",
+    "examples/controls-test/sdkconfig.defaults": "d61a3d80fac2e298a6f6d69fd4a3fc05c959e03c76762e81ef0aff3429e38b95",
+    "examples/motor-patterns/CMakeLists.txt": "34baf3382222a310a1a4bd1236bd25de045a59639c89b1173cc34997ddc78932",
+    "examples/motor-patterns/main/CMakeLists.txt": "9137021ad24398750a3685d53811505b491b6bef41b33f91e160151d660d7c5b",
+    "examples/motor-patterns/main/main.c": "b9d552b7182dcdb8a737a0e3ac2016cdbad24f3ff568dac1d55e2d5b8db177d8",
+    "examples/motor-patterns/main/patterns.h": "b3d5c56d47947c2ba6db01c77f790b384f551e689a7f34fd25acf9feaa3dc61b",
+    "examples/motor-patterns/partitions.csv": "f14d150dcafe75951182f44c6aff62d72fdd473b515f9df4e79cf50f2c9086a2",
+    "examples/motor-patterns/sdkconfig.defaults": "d61a3d80fac2e298a6f6d69fd4a3fc05c959e03c76762e81ef0aff3429e38b95",
+    "examples/motor-test/CMakeLists.txt": "2980ddd923da6aa6dcfa41c3ed2f38a1f197367cdd0fb8e8e99ea219972169eb",
+    "examples/motor-test/main/CMakeLists.txt": "741324e9b3da7f7d87cbc7d87df803568da7be8090d7731068820417b5a97fb9",
+    "examples/motor-test/main/main.c": "f0a60fad84458dd8087d62026604b22b186c88dfb55061ae8175befdf2935004",
+    "examples/motor-test/main/motor_gate.h": "520b116ab4f5f8bad1525d2d265cd0c11d0f8039803db10be016564ca0049e95",
+    "examples/motor-test/partitions.csv": "f14d150dcafe75951182f44c6aff62d72fdd473b515f9df4e79cf50f2c9086a2",
+    "examples/motor-test/sdkconfig.defaults": "d61a3d80fac2e298a6f6d69fd4a3fc05c959e03c76762e81ef0aff3429e38b95",
+    "examples/peripherals/CMakeLists.txt": "2b027786128c3ca89ec75c8daccb46604064ab64a6e2318cec12b156bf2dbe7e",
+    "examples/peripherals/main/CMakeLists.txt": "f67376bd6c25ee7678bc959f4c4053d82c03e3d33249d4f58fccb2772e12dc4f",
+    "examples/peripherals/main/Kconfig.projbuild": "e9719ad2bc4ef08e45ace4a70a405e809e883d462688bcb60a77fa439dd42ebc",
+    "examples/peripherals/main/main.c": "7f4ee890c1be2b01c2a477924d76c8af20fea32241886b2d6a7343c6a44e3160",
+    "examples/peripherals/sdkconfig.defaults": "d98e164eb96a7df4b98cc0245ef05a86281023a4c4faa8a199b0b39ae8f99dc4",
+    "examples/xiaozhi/CMakeLists.txt": "630b35a30b848ac7e302e951746e31d1dd27132508f3c41b8703a41870433495",
+    "examples/xiaozhi/components/opus_codec/CMakeLists.txt": "abe52e428a63d898b0370a5c779c8ca1f31d146c4714770354f27fd3fb2923a8",
+    "examples/xiaozhi/components/opus_codec/idf_component.yml": "811584d01fecc1019671a9e23724087d9b50f24905569b1b21e2b80e35a943ec",
+    "examples/xiaozhi/components/opus_codec/include/opus_decoder.h": "77aeafd8871180cfe33b5870b483d290266ff62ec4c11b24d95bd1c1335580ec",
+    "examples/xiaozhi/components/opus_codec/include/opus_encoder.h": "4bfec3c19df2771b8c29621ff78d0b7611119f68518a7b79c4df81ce5c17c99e",
+    "examples/xiaozhi/components/opus_codec/include/opus_resampler.h": "8e16d622c4d7e4ca812ddd2a534efdb11e410df8956fa8e70dbd2c50fc463965",
+    "examples/xiaozhi/components/opus_codec/include/resampler_structs.h": "7fc59318d11891d6e3849c65d2df3481431f581242e675cbdf94a13a242ba540",
+    "examples/xiaozhi/components/opus_codec/opus_decoder.cc": "11a08df9988ff480336218ac70b4333e5cd25728381dd3691de60338d7d94e38",
+    "examples/xiaozhi/components/opus_codec/opus_encoder.cc": "7c94a3e333efde040600d97a86eb52b21f04b767752a20e0b957e5195a047a7a",
+    "examples/xiaozhi/components/opus_codec/opus_resampler.cc": "7b96e7e4aa8f1006a22cc2a9681fdd8dcdc6ab07a3314798a3d9b33dd43a7a92",
+    "examples/xiaozhi/components/opus_codec/silk_resampler.h": "fd13e3bd0821d1a4fc233bf05561b1ed3ed527c7a79b2ac91f4dbd330d8fffd0",
+    "examples/xiaozhi/main/CMakeLists.txt": "3d07ba3d9c130b199c40998fb0570475672a19633a29d0108888d9a63cc89513",
+    "examples/xiaozhi/main/Kconfig.projbuild": "b0cd8745a65fa2575e6c894f4b21fb1e90e30b2f5849f021dcb9614858214f88",
+    "examples/xiaozhi/main/application.cc": "1d297a3a2d37128cce68b884ff3fbfa78ac144dd6d6bcb80e6e4416c1f7afddd",
+    "examples/xiaozhi/main/application.h": "305563bfb259815ec7b39968a78fdfede487c503b67299ffa5156ffdc1868b5a",
+    "examples/xiaozhi/main/assets/lang_config.h": "2a3a5ccbad8b38d86fdd489272409e61b0d6bf1d2bd7199c8a1ef939c9b27447",
+    "examples/xiaozhi/main/audio_codecs/audio_codec.cc": "584b323cd42e1e90c0a827ae33264881e3ffb4c785dd42d5a9e79d7911db001c",
+    "examples/xiaozhi/main/audio_codecs/audio_codec.h": "527c647c135d0c3c245788adfa3a1766166672cccc029b1e8ee7b0ecc1934b79",
+    "examples/xiaozhi/main/audio_codecs/vb6824_audio_codec.cc": "4d12f8101d1fe10c9bba6d739a288cab17efc02963e19ad4c1c8b1bebbf82152",
+    "examples/xiaozhi/main/audio_codecs/vb6824_audio_codec.h": "eeaf09c2ff02abd0e140e9bea727e6964c73e585a3462210ca71840e36471897",
+    "examples/xiaozhi/main/audio_processing/audio_debugger.cc": "da655a6af42846cd4dfd0b05c968dcc925757064f3ababc1a93ccf1a8858b7fb",
+    "examples/xiaozhi/main/audio_processing/audio_debugger.h": "0441cbf3a2beb78eebd4b2975b1193177c3add1e96525478d7c2745ae37a6cad",
+    "examples/xiaozhi/main/audio_processing/audio_processor.h": "8c2fd627a16be57d110d54f48f65e4f08e962cd7f77d32ef43352bbd69a4d63e",
+    "examples/xiaozhi/main/audio_processing/no_audio_processor.cc": "1fe43992d7388f9aa1b53ba52a878553f625dbf62fb1097d2f1ba86820cafd6c",
+    "examples/xiaozhi/main/audio_processing/no_audio_processor.h": "9cc79c11b02f34434091ea861961b4d9b11ac81a27901def892fa7ad38ba60a0",
+    "examples/xiaozhi/main/audio_processing/no_wake_word.cc": "3bd438459e66d905041a27620cc978f55dc8d545cb382625ea1ed6d897c9dafa",
+    "examples/xiaozhi/main/audio_processing/no_wake_word.h": "84ecc8a0f74e3461f67a3fb61eb14309437143577072e3e167ceaef5e3c154d9",
+    "examples/xiaozhi/main/audio_processing/wake_word.h": "e83e5ed29285b74953b6b202e51dbcc128ec2bbc8596a3a018208f60534b804e",
+    "examples/xiaozhi/main/background_task.cc": "b36e8701a66f1563952b4409766eb00e35c4ee913d0f7dedb49caf7551a3b51a",
+    "examples/xiaozhi/main/background_task.h": "3ab756864a23a0216c41a9b4500d705e97945e505ef4fab387871be5cb867545",
+    "examples/xiaozhi/main/boards/common/backlight.cc": "83806c7f6f11218fb2b1ff489a4e7be110918a59e1dad912d14c44d78a797b06",
+    "examples/xiaozhi/main/boards/common/backlight.h": "d7d35d2b7c6dc3d4355402d696a6c4908e80a299d766b97f75075e021bb26743",
+    "examples/xiaozhi/main/boards/common/board.cc": "8562cf7d2da5d1686e51fb6d8556afd18bb07eb3dfd452649e86de1d574eed20",
+    "examples/xiaozhi/main/boards/common/board.h": "bfb9dd2a24e02dd40bddd17ad9bba5e390b20758f4d4b67ae95dce8ea7f36e5e",
+    "examples/xiaozhi/main/boards/common/camera.h": "06acf8bc00525465389373ee9eecc8c025fb651dbf987b9d0638f302360acb9b",
+    "examples/xiaozhi/main/boards/common/esp32_camera.cc": "01cc24f59a06ded9f0f736ab9d034ba7906bb128977c4f813d982e15a74780a3",
+    "examples/xiaozhi/main/boards/common/esp32_camera.h": "2f19830b4292652365631013be3d99e5a7bed338dc66ddde3a2bea8779428963",
+    "examples/xiaozhi/main/boards/common/touch_button.cc": "b56aaaff85cf2f0b57a9903a84e44cbff408d604d97ffc70db11ce18ae421fca",
+    "examples/xiaozhi/main/boards/common/touch_button.h": "4e92763a5b1b32996217c1e00fb79fc86c5f1eb098258c1f5cee6a46f4017ddc",
+    "examples/xiaozhi/main/boards/common/wifi_board.cc": "6e59a1d09b5de3d4373ea4a88da0976406374c1748d381daee93f8060ecaba61",
+    "examples/xiaozhi/main/boards/common/wifi_board.h": "0cf630c9fac287f335f663139c2e1023fc0406f1cb101a418618ec057b0951c1",
+    "examples/xiaozhi/main/boards/micro-box-s3/config.h": "9b739bb47349bca9fbcc0c786d8d3d9155e0c1ca68cb980e3de02d6f3b1388a6",
+    "examples/xiaozhi/main/boards/micro-box-s3/micro-box-s3.cc": "db4337acf7666ce5bfefae7ba81ad5189c717051ed4958321aa6ade4965d6597",
+    "examples/xiaozhi/main/display/display.cc": "b6ad42b76e4f9505cb3d1c1757a94bf5297652f68710943b22ad78414b697714",
+    "examples/xiaozhi/main/display/display.h": "90f18806d978dc056f7d1e889c890b537a936872bf15f224a212f88a02549528",
+    "examples/xiaozhi/main/display/lcd_display.cc": "2223259b081003e8ad29465503e4fd34e3d60cd63f97d977202b9661349e55c0",
+    "examples/xiaozhi/main/display/lcd_display.h": "0f3d49b6b09624205697b3e03a783097eebbdd76484744b77fdad4a100a562a1",
+    "examples/xiaozhi/main/eye_data/160_160/big_blue.h": "47a4e2aae2ef74aac8db201f881c0e9bc3e3654d192ca7525ba4532a258ec366",
+    "examples/xiaozhi/main/eye_data/160_160/black_star.h": "7240418543b569afbc4ca53b6c2054c2e169e7c92708a24cc1a7e22e7c6fdfd2",
+    "examples/xiaozhi/main/eye_data/160_160/blood.h": "541fe7def9da7d7421acf14172dde33023c06ca096de55f57b40b68024749713",
+    "examples/xiaozhi/main/eye_data/160_160/common.h": "2fc2f951db19198f51df28bbe05c5b6c0dd660accfd03e8bff68bd2a0382949e",
+    "examples/xiaozhi/main/eye_data/160_160/cospa.h": "23b14d181354357ac32596729d7f7a9f0dc64a2779d39928101833b6564c7fb2",
+    "examples/xiaozhi/main/eye_data/160_160/default.h": "58cde0b36c18043dee70bb5428be7a915af65674ad42087cd31ca7471f3e7235",
+    "examples/xiaozhi/main/eye_data/160_160/ribbon.h": "c0c6dc447ffa18a54456dd3e64ec56f491ce0d6b2ab267dabf6b19485f177249",
+    "examples/xiaozhi/main/eye_data/160_160/sclera_common.h": "79dbd9f4961835e70de2ebab75ba5e72d20daf38ca14ac6cebf7411355ad2781",
+    "examples/xiaozhi/main/eye_data/160_160/spikes.h": "9930145e6d35ffaf259cb24e5d4959ab0785569f54abe732f05f0521c7c13ca1",
+    "examples/xiaozhi/main/eye_data/160_160/straw.h": "3425344e8f696aeae309829b52f07786d4f560cceaf53d111096c82dfd785d89",
+    "examples/xiaozhi/main/eye_data/160_160/upper_lower_common.h": "278bfb9370ed6949d29e74cf1bcfcf803cc8f5a55b693c9573e266d9b2ef0d44",
+    "examples/xiaozhi/main/idf_component.yml": "82389cb6773b51b7fb32f0b184d795ef4df22e281cea0d599aca10eee6f78be9",
+    "examples/xiaozhi/main/iot/thing.cc": "bdb90745c7fe1079e88e8e0c3256f652aca28f5ca767e154ac9801dd240a3e57",
+    "examples/xiaozhi/main/iot/thing.h": "c6f1190ded2bb2e796091f361a75f4cbfc75098f3ff3bb48ddb201dac6abd66c",
+    "examples/xiaozhi/main/iot/thing_manager.cc": "d7e2db9bad86400687387f715cd4f328d80354918d14ab117f492322c70b85d8",
+    "examples/xiaozhi/main/iot/thing_manager.h": "cd643071b32a51665bcad4959ccac3711935471474d8390af6825301a4ca8022",
+    "examples/xiaozhi/main/iot/things/screen.cc": "0ea0bfdb125e283047f1cf9e831eef1e40f8bee78616c45dabca90360326628f",
+    "examples/xiaozhi/main/iot/things/speaker.cc": "5ca9ce6b4920fb448e755a5251f88bdc9e4f2fb17503f91c29f203e19754cb40",
+    "examples/xiaozhi/main/led/led.h": "bf036c6f5478fb0dd89d7b82626e8fc222d60b93558706df35546655cdd525f3",
+    "examples/xiaozhi/main/main.cc": "818ab8a9284c2f713565e840df7d89b0c6fa69ccae55a4963e5e8309334a77df",
+    "examples/xiaozhi/main/mcp_server.cc": "01d5a34dd780267e999de3dd1443aaa94f5f200b5a7a32d448230eb8f40632f0",
+    "examples/xiaozhi/main/mcp_server.h": "f29d2234d1ebd07b2209d43c357ec625eb0225ab46038f888249039791180693",
+    "examples/xiaozhi/main/ota.cc": "1d1e72e1766bbbb84b1406b924066ab09b7834629f82b5f8954bc4c21990d58a",
+    "examples/xiaozhi/main/ota.h": "713b0f6ce3679bf8a59d4d3ed0a3c6afb5abe2ac06ac6737f2ade6852c6d8744",
+    "examples/xiaozhi/main/protocols/mqtt_protocol.cc": "e79a86b2dd6dffa2f9303e7c5187d5f6c4b3165b8622c14f7364a270f15ebcc5",
+    "examples/xiaozhi/main/protocols/mqtt_protocol.h": "2f527c001b001460fe45db931ff0b86bc34b7bd0841baaf372bd6f7d0349a70e",
+    "examples/xiaozhi/main/protocols/protocol.cc": "73623c084298efc1b0283453914aff87619d003fd25f3f02bc2fe98b2b44250b",
+    "examples/xiaozhi/main/protocols/protocol.h": "4db8b16fe70bc9931a0b5e2a2b2a8c97b9d857024ef69f8887e93ebd98f00461",
+    "examples/xiaozhi/main/protocols/websocket_protocol.cc": "1453c5a3c39ea7ce841987878bffea8533a03b09e1765c854349013e74cb2cca",
+    "examples/xiaozhi/main/protocols/websocket_protocol.h": "8b14d7b8a00136482ef2e297f2c5e5a08feb09d67d542b6d2d76fec7323230bc",
+    "examples/xiaozhi/main/settings.cc": "0e73dbedb6cd5861b79cd979796607d78397494a83e009d03929b21daccd42d0",
+    "examples/xiaozhi/main/settings.h": "0a6cf1d02d4bb9f4c867c544e0d29fbe4b4abaa03eb0b6afeae0139e456a86a8",
+    "examples/xiaozhi/main/system_info.cc": "b5d4a36cce0cb3474753785b46ace370c08775e7bba42863159cc09e945abf72",
+    "examples/xiaozhi/main/system_info.h": "86f6d608f9ca7c0976045155a99a7aefeace5ac601b87d9c431fc76cc3d730d1",
+    "examples/xiaozhi/partitions.csv": "f14d150dcafe75951182f44c6aff62d72fdd473b515f9df4e79cf50f2c9086a2",
+    "examples/xiaozhi/sdkconfig.defaults": "b96c43a65439f750cda6336c01d30d6c6065e89fcecded6b1a7614abfc777d86",
+    "tests/test_board_contract.py": "3144c73e02bd4fa245df06d7d31f1b3783712628c74844c1d990f3d98a9a0f85",
+    "tests/test_build_contract.py": "8241bea9ee6faa36463b630b8529aecfcde84adcb386d0cb08b115047c746a16",
+    "tests/test_cmake_early_expansion.py": "1be722ea2904a4489dfa33005a24834139442fe8e7e586b1c1f87fa9fb187881",
+    "tests/test_controls_inputs.py": "c8857be276222f2fb19d83d24d64ad98ac1e5278dca3fd7c2636f31a8c4766f3",
+    "tests/test_controls_motor.py": "d41923eeedc1901309f94fa95f4fb7d42d93f103144e662a1630b7fd5ab8121e",
+    "tests/test_controls_sdk_contract.py": "43f2a3795a0208c595643e7688d3cbcc57e54b6dc31a42fc304faee3f9f1aca3",
+    "tests/test_controls_test.py": "aa8fd7912435fdf011d1c0ee5a6f31eb26d4f0559af49e335266a9b9c78077b7",
+    "tests/test_display_dma_contract.py": "e346dd38b1adda0ab78823d24f05e4c0a56dc3baf524c7ad6ad7cc2eb1995ab2",
+    "tests/test_lcd_error_contract.py": "98de3841e949c5c6c0f64ce64a25c7c673bc5dee4d3d91004b88a09c2d0ac443",
+    "tests/test_motor_patterns.py": "f056b93896aae00b83d5ea05af96cf1615d6abece27b33626dd76262345aef92",
+    "tests/test_motor_test.py": "d369fe8b38d161d37760c2bbdc3122f3062c9e80eb2dc3233c331b39519338d5",
+    "tests/test_network_recovery_contract.py": "2d452d3071750553043a9a5e9aa99a7e438d964ad9297e683c36869c9882f670",
+    "tests/test_peripheral_dma_contract.py": "b36dd71ed232b87134dd660887f8331ec1e90df45e47eabca196248f6aa9d399",
+    "tests/test_vb6824_parser.py": "10bc64215ef9969d14b5a80593e2aba8bdd893693eead267b318a9624ad41965",
+    "tests/test_xiaozhi_contract.py": "edf606a27710ce0dfc224b8e9c668624a21d99a1af59987a6b51e1cc88c13f5e",
+    "tools/build.py": "339f6882c6671f2c3b6a5c4df03d332b874e99d7188f9499b716271f54b86623"
+  },
+  "scope": "single touch GPIO11, buttons GPIO12/13, motor IN GPIO14; source and build validation only",
+  "test_result": {
+    "successful": true,
+    "tests_run": 91,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "independent_review": {
+    "independent_reviews_passed": true,
+    "security_concerns": [],
+    "logic_errors": [],
+    "parent_verified_snapshot_files": [
+      {
+        "snapshot": "controls-review-motor.txt",
+        "sha256": "6103d50e9e121089259dc18815a3863d925a7ee1398affeeacfee886fbc19263",
+        "files_verified": 5,
+        "snapshot_files_matched_when_checked": true
+      },
+      {
+        "snapshot": "controls-review-inputs-integration.txt",
+        "sha256": "414335c59354acdd3cf0a97480d4f107ba4ba6cd36fab0af35b3440f8eb1958a",
+        "files_verified": 22,
+        "snapshot_files_matched_when_checked": true
+      }
+    ],
+    "scope": "Two independent core reviews; snapshots matched when checked; later console validation change is tracked separately.",
+    "nonblocking_followups": [
+      "real FreeRTOS dual-core lifecycle and callback schedule tests",
+      "driver-level invalid touch read sequences",
+      "additional per-call cleanup-failure injection and boundary combinations"
+    ],
+    "hardware_or_serial_access": false,
+    "post_build_console_delta": {
+      "files": [
+        "tools/build.py",
+        "tests/test_build_contract.py"
+      ],
+      "regression_tests_passed": true,
+      "independent_review": {
+        "passed": true,
+        "security_concerns": [],
+        "logic_errors": [],
+        "reviewed_files_sha256": {
+          "tools/build.py": "339f6882c6671f2c3b6a5c4df03d332b874e99d7188f9499b716271f54b86623",
+          "tests/test_build_contract.py": "8241bea9ee6faa36463b630b8529aecfcde84adcb386d0cb08b115047c746a16"
+        },
+        "build_contract_tests_passed": 4,
+        "suggestions": [
+          "Optional additional driver-enabled-but-no-primary-or-secondary rejection fixture"
+        ]
+      }
+    },
+    "final_changed_source_coverage": "25 unchanged core files plus 2 separately reviewed console-validator/test files",
+    "all_three_reviews_passed": true
+  },
+  "build_targets_verified": 11,
+  "build_results": [
+    {
+      "target": "display",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:37:17.237332+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "b4f80cb701c4bd7a823b5fe64e5b316159980884c6103d6b38c3fcd1653ef1ab"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 224992,
+          "sha256": "bc2f8a85d6e86e10e43dd8adf02d2d0c885a172da22222233ee9f7f9f5911660"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "audio",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:37:53.729987+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "4c6f34ae42b017dcae55ddae79e17e8bab37f3a9bc86101c22bd4990a7968025"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 208384,
+          "sha256": "b1e15af8419c6a96d15e33be53a08c9a0e789415b7330eb6c3275adaa33d924f"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "camera",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:38:29.250397+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "462ffec32cb9e5a32d15829ab6c9c04c40ec2b2cc06db7b86410b1473e2cee3f"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 278640,
+          "sha256": "90962f9f929fb3727bbceb2a5779d7321b405459a97bc54fed910ba6e33ed267"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "touch",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:39:05.687060+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "c5f0efa7035a6968ffaec4f2fbee80299990be6387ee9f30032cfd9a38857900"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 189504,
+          "sha256": "dfcbd229a4371c490a14b2889f9704a0459cff9104d311fcb8366d251e70f207"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "buttons",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:43:42.691472+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "ea93ba300c4687c6f6487ac24f360394e4283701c18f1c8b9a4e351b73e14a25"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 189504,
+          "sha256": "4c3ba7ce48baf957ec5cac9e5422d1078274d53333340a6c1d08fe63dce48e4e"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "motor",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:48:43.867056+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "c1acf88c6d9e13543aa2ab765e47c536d573ab947f3190292eb78971674c43a9"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 191296,
+          "sha256": "2c8f6780c34490e6e54954f130c5ecdbf27050b4918f3f52317826ec4f503060"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "controls",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:54:03.608891+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "23a5467730787648f82742f7c552f80d2dc082e38466f136663504a6e955b9e9"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_peripherals.bin",
+          "bytes": 198320,
+          "sha256": "3683daa3aacede1e9ee124199071620151296b4c4ca26c5204bfb9082db58751"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820"
+        }
+      ]
+    },
+    {
+      "target": "xiaozhi",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T15:01:02.066620+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 23808,
+          "sha256": "71f2f456d53d66655ecef95fd270193407986db7d4ae43c5eeb46102f1ddd06f"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro-box-s3.bin",
+          "bytes": 1983744,
+          "sha256": "030cceec3e639f0ba7a50fe847a26438a17b196da930243200224b90c7f54af5"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "1e8b2cdc67a2e2573b89dcc2b55a048c9b1f098fe8e6fb6c99b39e9672433a41"
+        },
+        {
+          "offset": "0xd000",
+          "file": "ota_data_initial.bin",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ]
+    },
+    {
+      "target": "controls-test",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:17:36.891741+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "e99b9354e37b061f6ffdff051f879dcd4cc811e51e049a883c93b5693d38cca7"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_controls_test.bin",
+          "bytes": 155280,
+          "sha256": "7f1edd7e92947cdf97086c766fbb35e1014a676a3887593f9e498bd5103cf08e"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "1e8b2cdc67a2e2573b89dcc2b55a048c9b1f098fe8e6fb6c99b39e9672433a41"
+        },
+        {
+          "offset": "0xd000",
+          "file": "ota_data_initial.bin",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ]
+    },
+    {
+      "target": "motor-test",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:17:58.721116+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "7cf242edeee1912608de970b61930622d95f8489edf3462cc4c7af4903f48a92"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_motor_test.bin",
+          "bytes": 160432,
+          "sha256": "83185fe8f8c5a72459632a95c685ff8e3a1b294c950aac14f8f29a95f955fe6e"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "1e8b2cdc67a2e2573b89dcc2b55a048c9b1f098fe8e6fb6c99b39e9672433a41"
+        },
+        {
+          "offset": "0xd000",
+          "file": "ota_data_initial.bin",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ]
+    },
+    {
+      "target": "motor-patterns",
+      "board": "micro-box-s3",
+      "sdk": "ESP-IDF v5.4.3",
+      "built_at": "2026-11-10T14:18:20.701277+00:00",
+      "compile_passed": true,
+      "configuration_verified": true,
+      "flashed": false,
+      "hardware_tested": false,
+      "images": [
+        {
+          "offset": "0x0",
+          "file": "bootloader/bootloader.bin",
+          "bytes": 22208,
+          "sha256": "22d6f978b5f4f8dae493637a22111c669ba613fdd75ecb3f1e3f2d6356f14502"
+        },
+        {
+          "offset": "0x10000",
+          "file": "micro_box_s3_motor_patterns.bin",
+          "bytes": 169632,
+          "sha256": "45e6787d48a1f02835421abfedf137892e5407b81ba9565635257c7e6db55f37"
+        },
+        {
+          "offset": "0x8000",
+          "file": "partition_table/partition-table.bin",
+          "bytes": 3072,
+          "sha256": "1e8b2cdc67a2e2573b89dcc2b55a048c9b1f098fe8e6fb6c99b39e9672433a41"
+        },
+        {
+          "offset": "0xd000",
+          "file": "ota_data_initial.bin",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ]
+    }
+  ],
+  "flashed_this_update": false,
+  "shared_components_hardware_tested": false,
+  "historical_diagnostics_are_not_shared_component_acceptance": true,
+  "electrical_range_qualified": false
+}

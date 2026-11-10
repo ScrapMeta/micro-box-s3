@@ -1,0 +1,81 @@
+{
+  "marker": "controls-inputs-v1",
+  "app_sha256": "e518aaf07f1edd9ca16e8292599463982f1442bb325a1c0476161e6fad553e48",
+  "app_bytes": 155280,
+  "flashed": true,
+  "independent_readback_match": true,
+  "boot_partition_ota_nvs_phy_preserved": true,
+  "pin_mapping": {
+    "touch": 11,
+    "button_a": 12,
+    "button_b": 13,
+    "motor_idle": 14
+  },
+  "observed_events": {
+    "BUTTON_A GPIO12": {
+      "press": 7,
+      "release": 7,
+      "held_ms": [
+        185,
+        300,
+        1015,
+        1500,
+        40,
+        35,
+        30
+      ]
+    },
+    "BUTTON_B GPIO13": {
+      "press": 21,
+      "release": 21,
+      "held_ms": [
+        1285,
+        1420,
+        1475,
+        280,
+        1135,
+        1585,
+        290,
+        1070,
+        65,
+        150,
+        705,
+        730,
+        505,
+        175,
+        385,
+        245,
+        70,
+        175,
+        430,
+        2325,
+        970
+      ]
+    },
+    "TOUCH GPIO11": {
+      "press": 1,
+      "release": 1,
+      "held_ms": [
+        15475
+      ]
+    }
+  },
+  "touch_raw_min": 43128,
+  "touch_raw_max": 115066,
+  "user_confirmed": {
+    "actions_completed": true,
+    "extra_button_presses": true,
+    "hand_stayed_near_or_on_electrode": true,
+    "motor_physically_connected": true,
+    "motor_was_not_commanded": true
+  },
+  "basic_response": {
+    "button_a": true,
+    "button_b": true,
+    "touch_press_release": true
+  },
+  "exact_count_and_touch_repeatability_verified": false,
+  "new_shared_component_tested": false,
+  "verdict": "basic_input_response_only",
+  "current_firmware": "later motor-patterns-v1, not this diagnostic"
+}

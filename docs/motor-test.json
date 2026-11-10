@@ -1,0 +1,40 @@
+{
+  "project": "micro_box_s3_motor_test",
+  "marker": "motor-once-v1",
+  "accepted_at": "2026-11-10T21:37:11.621598+08:00",
+  "app_bytes": 160432,
+  "app_sha256": "382a07b9134bad2108e97db392384b27b83999c257fd8a881291732d26607b07",
+  "source_hashes": {
+    "CMakeLists.txt": "2980ddd923da6aa6dcfa41c3ed2f38a1f197367cdd0fb8e8e99ea219972169eb",
+    "partitions.csv": "f14d150dcafe75951182f44c6aff62d72fdd473b515f9df4e79cf50f2c9086a2",
+    "sdkconfig.defaults": "d61a3d80fac2e298a6f6d69fd4a3fc05c959e03c76762e81ef0aff3429e38b95",
+    "main\\CMakeLists.txt": "741324e9b3da7f7d87cbc7d87df803568da7be8090d7731068820417b5a97fb9",
+    "main\\main.c": "f0a60fad84458dd8087d62026604b22b186c88dfb55061ae8175befdf2935004",
+    "main\\motor_gate.h": "520b116ab4f5f8bad1525d2d265cd0c11d0f8039803db10be016564ca0049e95"
+  },
+  "flashed": true,
+  "independent_readback_match": true,
+  "boot_partition_ota_nvs_phy_preserved": true,
+  "gpio": 14,
+  "power_source": "VBAT per user wiring; voltage/current not measured",
+  "requested_pulse_us": 200000,
+  "on_events": 1,
+  "off_events": 1,
+  "firmware_reported_on_duration_us": [
+    200020
+  ],
+  "firmware_reported_final_state": "OFF",
+  "physical_feedback": "明显短振一下，然后停止",
+  "physical_vibration": true,
+  "default_no_automatic_pulse": true,
+  "one_pulse_per_boot": true,
+  "electrical_range_qualified": false,
+  "remaining_scope": [
+    "battery voltage/current measurement",
+    "3.3V input margin and backfeed measurement",
+    "low-battery repeated start",
+    "temperature/long-duration",
+    "combined buttons/touch/voice integration"
+  ],
+  "verdict": "single_short_vibration_and_stop_passed_electrical_range_unqualified"
+}

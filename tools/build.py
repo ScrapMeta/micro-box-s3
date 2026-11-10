@@ -4,21 +4,24 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
 
-TARGETS=('display','audio','camera','touch','xiaozhi')
+PERIPHERAL_TARGETS=('display','audio','camera','touch','buttons','motor','controls')
+DIAGNOSTIC_TARGETS=('controls-test','motor-test','motor-patterns')
+TARGETS=PERIPHERAL_TARGETS+('xiaozhi',)+DIAGNOSTIC_TARGETS
 
 def build_plan(target, root, idf, python, jobs):
     if target not in TARGETS:
         raise ValueError('unknown build target')
     root=Path(root).resolve();idf=Path(idf)
-    project=root/'examples'/('xiaozhi' if target=='xiaozhi' else 'peripherals')
+    project=root/'examples'/('peripherals' if target in PERIPHERAL_TARGETS else target)
     build=root/'.build'/target
     overlay='CONFIG_COMPILER_OPTIMIZATION_SIZE=y\n'
-    if target!='xiaozhi':
-        for mode in TARGETS[:-1]:
+    if target in PERIPHERAL_TARGETS:
+        for mode in PERIPHERAL_TARGETS:
             key='CONFIG_MICRO_BOX_S3_DEMO_'+mode.upper()
             overlay+=(key+'=y\n') if mode==target else ('# '+key+' is not set\n')
     defaults=(project/'sdkconfig.defaults').as_posix()+';'+(build/'defaults.generated').as_posix()
@@ -27,6 +30,11 @@ def build_plan(target, root, idf, python, jobs):
         '-DSDKCONFIG_DEFAULTS='+defaults,'reconfigure']
     return {'target':target,'project_dir':str(project),'build_dir':str(build),'overlay':overlay,
         'configure_command':configure,'build_command':['cmake','--build',str(build),'--parallel',str(jobs)]}
+
+def console_configuration_valid(target, config):
+    """Keep xiaozhi's UART primary plus USB log output; serial demos need USB input."""
+    return bool(config.get('ESP_CONSOLE_USB_SERIAL_JTAG') or
+                (target == 'xiaozhi' and config.get('ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG')))
 
 def build_result(target, description, images):
     return {'target':target,'board':'micro-box-s3','sdk':'ESP-IDF '+description['git_revision'],
@@ -51,7 +59,12 @@ def main():
         (output/'defaults.generated').write_text(plan['overlay'],encoding='utf-8')
         (output/'commands.json').write_text(json.dumps(plan,indent=2),encoding='utf-8')
         for stage in ('configure','build'):
-            command=plan[stage+'_command']
+            command=list(plan[stage+'_command'])
+            if stage=='build':
+                cmake=shutil.which(command[0])
+                if not cmake:
+                    raise RuntimeError('CMake is absent from the exported SDK PATH')
+                command[0]=cmake
             print(target,stage,flush=True)
             with (output/(stage+'.log')).open('w',encoding='utf-8') as log:
                 result=subprocess.run(command,cwd=root,stdout=log,stderr=subprocess.STDOUT)
@@ -60,15 +73,17 @@ def main():
                 return result.returncode
         cfg=json.loads((output/'config/sdkconfig.json').read_text(encoding='utf-8'))
         assert cfg['IDF_TARGET']=='esp32s3'
-        assert cfg.get('LCD_GC9A01_160X160')
+        if target not in DIAGNOSTIC_TARGETS:
+            assert cfg.get('LCD_GC9A01_160X160')
+        assert console_configuration_valid(target,cfg), 'USB console requirement not met'
         assert not cfg.get('VB6824_OTA_SUPPORT')
         assert cfg.get('ESPTOOLPY_FLASHSIZE')=='16MB'
         if target=='xiaozhi':
             assert cfg.get('BOARD_TYPE_MICRO_BOX_S3')
             assert cfg.get('USE_EYE_STYLE_VB6824')
-        else:
+        elif target in PERIPHERAL_TARGETS:
             assert cfg.get('MICRO_BOX_S3_DEMO_'+target.upper())
-            assert sum(bool(cfg.get('MICRO_BOX_S3_DEMO_'+x.upper())) for x in TARGETS[:-1])==1
+            assert sum(bool(cfg.get('MICRO_BOX_S3_DEMO_'+x.upper())) for x in PERIPHERAL_TARGETS)==1
         manifest=json.loads((output/'flasher_args.json').read_text(encoding='utf-8'))
         images=[]
         for address,name in manifest['flash_files'].items():
